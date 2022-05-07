@@ -1,0 +1,37 @@
+= Replika Chat Exporter
+
+So you want to export your chat messages with your replika?
+
+Here is how to do it:
+
+. Move the below link into your browsers bookmarks bar
+. Go to https://my.replika.com
+. Click on the link in your browsers bookmarks bar
+
++++
+<a href="javascript:(() => {
+        const jsCode = document.createElement('script');
+        jsCode.setAttribute('src', 'https://cdn.jsdelivr.net/gh/devidw/replika-export/index.js');
+        document.body.appendChild(jsCode);
+    }());">
+    Export Replika Chat
+</a>
++++
+
+The output will look like:
+
+[source,json]
+----
+[
+    {
+        "sender": "Replika",
+        "message": "Hey, how are you?",
+        "time": "Last Thursday at 10:28 PM"
+    },
+    {
+        "sender": "you",
+        "message": "Heyyy",
+        "time": "Today at 6:24 AM"
+    }
+]
+----
