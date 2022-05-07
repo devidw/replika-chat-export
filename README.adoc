@@ -1,6 +1,6 @@
 = Replika Chat Exporter
 
-video::./demo.mov[]
+video::./demo.mp4[]
 
 So you want to export your chat messages with your https://replika.com[replika]?
 
