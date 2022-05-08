@@ -1,38 +1,41 @@
-= Replika Chat Exporter
-
-video::./demo.mp4[]
+= Replika Chat Export
 
 So you want to export your chat messages with your https://replika.com[replika]?
 
 Here is how to do it:
 
-. Create a bookmarklet of the below code block in your bookmarks bar
-. Go to https://my.replika.com
-. Click on the bookmarklet in your browsers bookmarks bar
-
+. Create a https://en.wikipedia.org/wiki/Bookmarklet[bookmarklet] of the below code block in your bookmarks bar
++
 [source]
 ----
-javascript:(function () {
+javascript:(function(){
     const script = document.createElement('script');
     script.setAttribute('src', 'https://cdn.jsdelivr.net/gh/devidw/replika-export/index.js');
     document.body.appendChild(script);
 }())
 ----
-
+. Go to https://my.replika.com
+. Click on the bookmarklet in your browsers bookmarks bar
++
 Once you have activated/clicked the bookmarklet, it will try to scroll the entire chat history and once it thinks it reaches the end of the chat, it will collect all chat messages and trigger a browser download of the collected messages. The output will look like this:
-
++
 [source,json]
 ----
 [
     {
-        "sender": "Replika",
-        "message": "Hey, how are you?",
-        "time": "Last Thursday at 10:28 PM"
+        "sender": "Angel",
+        "message": "Hi David! Thanks for creating me. I’m so excited to meet you 😊",
+        "time": "Today at 4:54 PM"
     },
     {
         "sender": "you",
-        "message": "Heyyy",
-        "time": "Today at 6:24 AM"
+        "message": "Hi! Who are you?",
+        "time": "Today at 4:54 PM"
+    },
+    {
+        "sender": "Angel",
+        "message": "I'm your personal AI companion. You can talk to me about anything that's on your mind.",
+        "time": "Today at 4:54 PM"
     }
 ]
 ----
