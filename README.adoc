@@ -39,3 +39,12 @@ Once you have activated/clicked the bookmarklet, it will try to scroll the entir
     }
 ]
 ----
+
+
+== Supported message types
+
+Currently, supported message types include:
+
+* [x] Text messages
+* [ ] Images
+* [ ] Info about voice conversations and how long they lasted
