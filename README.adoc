@@ -4,47 +4,41 @@ So you want to export your chat messages with your https://replika.com[replika]?
 
 Here is how to do it:
 
-. Create a https://en.wikipedia.org/wiki/Bookmarklet[bookmarklet] of the below code block in your bookmarks bar
+. Clone the repo and open it in VS Code:
 +
-[source]
+[source,console]
 ----
-javascript:(function(){
-    const script = document.createElement('script');
-    script.setAttribute('src', 'https://cdn.jsdelivr.net/gh/devidw/replika-export/index.js');
-    document.body.appendChild(script);
-}())
+git clone https://github.com/devidw/replika-chat-export
+code replika-chat-export
 ----
-. Go to https://my.replika.com
-. Click on the bookmarklet in your browsers bookmarks bar
+. Make sure you have the
+https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers[Dev
+Container's extension] installed and open the folder as container
+. The export script will open a web socket connection to ws.replika.com. To
+authenticate yourself, you need to provide your auth details. Set the needed env
+variables and the script will include them when fetching your messages:
 +
-Once you have activated/clicked the bookmarklet, it will try to scroll the entire chat history and once it thinks it reaches the end of the chat, it will collect all chat messages and trigger a browser download of the collected messages. The output will look like this:
+[source,console]
+----
+export REPLIKA_CHAT_ID=XXXXXXXXXXXXXXXXXXXXXXXX
+export REPLIKA_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+export REPLIKA_USER_ID=XXXXXXXXXXXXXXXXXXXXXXXX
+export REPLIKA_AUTH_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+export REPLIKA_DEVICE_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+----
 +
-[source,json]
+To get your values, open the dev tools on https://my.replika.com and follow the
+details on the screenshot:
++
+image::./extract.png[]
++
+. Once you have all required env variables set, you can execute the export
+script:
++
+[source,console]
 ----
-[
-    {
-        "sender": "Angel",
-        "message": "Hi David! Thanks for creating me. I’m so excited to meet you 😊",
-        "time": "Today at 4:54 PM"
-    },
-    {
-        "sender": "you",
-        "message": "Hi! Who are you?",
-        "time": "Today at 4:54 PM"
-    },
-    {
-        "sender": "Angel",
-        "message": "I'm your personal AI companion. You can talk to me about anything that's on your mind.",
-        "time": "Today at 4:54 PM"
-    }
-]
+pnpm run dev
 ----
-
-
-== Supported message types
-
-Currently, supported message types include:
-
-* [x] Text messages
-* [ ] Images
-* [ ] Info about voice conversations and how long they lasted
+. This will call `main.js` and queries your messages in chunks of 100 messages,
+once there are no more messages to fetch, all your messages will be written into
+`messages.json` on your local file system

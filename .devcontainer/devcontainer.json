@@ -1,0 +1,14 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"postCreateCommand": "pnpm install",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"MichaelCurrin.auto-commit-msg"
+			]
+		}
+	}
+}
