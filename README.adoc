@@ -42,3 +42,7 @@ pnpm run dev
 . This will call `main.js` and queries your messages in chunks of 100 messages,
 once there are no more messages to fetch, all your messages will be written into
 `messages.json` on your local file system
+
+== Performance
+
+You should be able to export around 300 messags per second.
