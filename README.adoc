@@ -2,7 +2,7 @@
 
 So you want to export your chat messages with your https://replika.com[replika]?
 
-NOTE: Looking fora no-code, one-click, zero-setup export? Check out the https://index.garden/replika-export/[browser extension].
+NOTE: Looking for a no-code, one-click, zero-setup export? Check out the https://index.garden/replika-export/[browser extension].
 
 Here is how to do it:
 
