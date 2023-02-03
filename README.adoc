@@ -2,6 +2,8 @@
 
 So you want to export your chat messages with your https://replika.com[replika]?
 
+NOTE: Looking fora no-code, one-click, zero-setup export? Check out the https://index.garden/replika-export/[browser extension].
+
 Here is how to do it:
 
 . Clone the repo and open it in VS Code:
@@ -16,16 +18,17 @@ https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-cont
 Container's extension] installed and open the folder as container
 . The export script will open a web socket connection to ws.replika.com. To
 authenticate yourself, you need to provide your auth details. Set the needed env
-variables and the script will include them when fetching your messages:
+variables and the script will include them when fetching your messages. You can
+set them in a `.env` file:
 +
 [source,console]
 ----
-export REPLIKA_CHAT_ID=XXXXXXXXXXXXXXXXXXXXXXXX
-export REPLIKA_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-export REPLIKA_USER_ID=XXXXXXXXXXXXXXXXXXXXXXXX
-export REPLIKA_AUTH_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-export REPLIKA_DEVICE_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+REPLIKA_CHAT_ID=XXXXXXXXXXXXXXXXXXXXXXXX
+REPLIKA_USER_ID=XXXXXXXXXXXXXXXXXXXXXXXX
+REPLIKA_AUTH_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+REPLIKA_DEVICE_ID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ----
+// REPLIKA_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 +
 To get your values, open the dev tools on https://my.replika.com and follow the
 details on the screenshot:
