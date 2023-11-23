@@ -18,6 +18,15 @@ REQUIRED_ENV_VARS.forEach((envVar) => {
   }
 })
 
+
+let guid = () => {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
+    return v.toString(16);
+  }).toUpperCase();
+}
+
+const token = guid().toLowerCase();
 const ws = new WebSocket("wss://ws.replika.com/v17")
 
 const query = {
@@ -27,7 +36,7 @@ const query = {
     limit: 100,
   },
   // token: process.env.REPLIKA_TOKEN,
-  token: process.env.REPLIKA_AUTH_TOKEN,
+  token: token,
   auth: {
     user_id: process.env.REPLIKA_USER_ID,
     auth_token: process.env.REPLIKA_AUTH_TOKEN,
